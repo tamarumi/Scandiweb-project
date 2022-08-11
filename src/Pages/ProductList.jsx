@@ -27,12 +27,12 @@ class ProductList  extends Component {
     
     render() {  
         return (
-        <Query query={GET_PRODUCTS} >
+        <Query query={GET_PRODUCTS} variables={{title: this.props.title}}>
          {({ loading, error, data}) => {
            
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error :( </p>;
-            console.log(data)
+            
             return (
                 <div className= "ProductList"> 
                 {data.category.products.map (product => {
