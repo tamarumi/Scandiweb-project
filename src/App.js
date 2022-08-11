@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
+
+class App extends Component {
+  constructor()
+  {
+    super();
+    this.state={
+      title: "clothes"
+    }
+  }
+
+handleAll(e) 
+{
+  e.preventDefault();
+  this.setState({title: "all"});
+}
+handleClothes(e)
+{
+  e.preventDefault();
+  this.setState({title: "clothes"});
+}
+handleTech(e)
+{
+  e.preventDefault();
+  this.setState({title: "tech"});
+}
+
+render()
+{
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='Categories'>
+      <div onClick = {(e) => this.handleAll(e)}>All</div>
+      <div onClick = {(e) => this.handleClothes(e)}>Clothes</div>
+      <div onClick ={(e) => this.handleTech(e)}>Tech</div>
     </div>
-  );
+   <div>
+   </div>
+  </div>
+  )
+}
+
 }
 
 export default App;
+
+
+
+
