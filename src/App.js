@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
+import ProductList from './Pages/ProductList';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 class App extends Component {
@@ -38,6 +40,11 @@ render()
     </div>
    <div>
    </div>
+   <>
+    <Routes>
+      <Route path="/productlist" element={<ProductList />}/>
+    </Routes>
+  </>
   </div>
   )
 }
