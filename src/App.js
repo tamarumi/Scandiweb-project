@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import './App.css';
 import ProductList from './Pages/ProductList';
+import ProductPage from './Pages/ProductPage';
+import CurrencyChange from './Pages/CurrencyChange';
 import { BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
 
 
 class App extends Component {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
     this.state={
-      title: "clothes"
+      title: "clothes",
+      currency: [],
     }
   }
 
@@ -17,6 +20,7 @@ componentDidMount () {
   setTimeout (() => {
     this.props.navigate ("/productlist");
   }, 5);
+  
   }
 
 handleAll(e) 
@@ -38,6 +42,10 @@ handleTech(e)
   this.componentDidMount();
 }
 
+setCurrency (a) {
+  this.setState({currency: a})
+}
+
 render()
 {
   return (
@@ -47,11 +55,14 @@ render()
       <div onClick = {(e) => this.handleClothes(e)}>Clothes</div>
       <div onClick ={(e) => this.handleTech(e)}>Tech</div>
     </div>
+    < CurrencyChange currency={this.state.currency} setCurrency={(a)=>this.setCurrency(a)}/>
    <div>
+
    </div>
    <>
     <Routes>
       <Route path="/productlist" element={<ProductList title={this.state.title}/>}/>
+      <Route path="/productpage/:id" element={<ProductPage />}/>
     </Routes>
   </>
   </div>

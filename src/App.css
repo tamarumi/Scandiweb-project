@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 .App { 
   max-width: 80rem;
   margin: 3rem auto;
@@ -12,10 +13,59 @@
 .Categories div {
   padding: 12px;
   cursor: pointer;
+  font-size: 22px;
 }
 
 .Categories div:hover {
   color: rgb(14, 184, 14);
   text-decoration: underline;
-  text-underline-offset: 7px;
+  text-underline-offset: 22px;
 }
+
+.custom-select  {
+  position: relative;
+  left: 90%;
+  top: 0px;
+  display: block;
+}
+
+.dollarSign  {
+  width: 33px;
+  height: 22px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #ffffff !important;
+  
+}
+
+.dollarSign:hover{
+ background-color: #ffffff !important;
+}
+
+.select {
+  display: inline;
+  margin-top: 5px;
+  padding: 5px 0px;
+  cursor: pointer;
+  color: #000000;
+  
+  border: none;
+  font-size: 20px;
+  font-weight: 800;
+  position: absolute;
+  max-height: 150px;
+  padding: 5px;
+}
+.select div{
+  padding: 6px 10px 15px 15px;
+  background: rgb(255, 255, 255);
+  max-height: 200px;
+  cursor: pointer;
+}
+.select div:hover{
+  background-color: #e5e5e5;
+  
+}
+ 
+ 

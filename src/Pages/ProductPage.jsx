@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Query } from "@apollo/client/react/components";
 import gql from "graphql-tag" ; 
+import './ProductPage.css';
 
 
 const GET_PRODUCT = gql`
@@ -28,12 +29,11 @@ class ProductPage  extends Component {
     }
     }
 
-  componentDidMount() {
-      const id = this.props.match && this.props.match.params.id
-      this.setState({
-          id: id
-      })
-  }
+    componentDidMount() {
+        this.setState({
+            id: window.location.pathname.split('/')[2]
+          });
+    }
 
 
   render() {
@@ -54,6 +54,9 @@ class ProductPage  extends Component {
              <img src={data.product.gallery[4]}/>
           </div>
          </div>
+         <div className='Product-content'>
+            <img src={data.product.gallery[0]}/>
+        </div>
        </div>
     )
     }}
