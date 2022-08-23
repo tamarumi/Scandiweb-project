@@ -13,6 +13,7 @@ class App extends Component {
     this.state={
       title: "clothes",
       currency: [],
+      array1: []
     }
   }
 
@@ -20,8 +21,7 @@ componentDidMount () {
   setTimeout (() => {
     this.props.navigate ("/productlist");
   }, 5);
-  
-  }
+}
 
 handleAll(e) 
 {
@@ -42,11 +42,7 @@ handleTech(e)
   this.componentDidMount();
 }
 
-setCurrency (a) {
-  this.setState({currency: a})
-}
-
-render()
+render()  
 {
   return (
     <div className="App">
@@ -55,13 +51,14 @@ render()
       <div onClick = {(e) => this.handleClothes(e)}>Clothes</div>
       <div onClick ={(e) => this.handleTech(e)}>Tech</div>
     </div>
-    < CurrencyChange currency={this.state.currency} setCurrency={(a)=>this.setCurrency(a)}/>
+    < CurrencyChange />
    <div>
 
    </div>
    <>
     <Routes>
-      <Route path="/productlist" element={<ProductList title={this.state.title}/>}/>
+      <Route path="/productlist" element={<ProductList title={this.state.title} 
+      currency={this.state.currency} />}/>
       <Route path="/productpage/:id" element={<ProductPage />}/>
     </Routes>
   </>
@@ -71,12 +68,14 @@ render()
 
 }
 
+
 export function APPwithRouter(props) {
   const navigate = useNavigate();
   return (<App  navigate = {navigate}></App>)
 }
 
 export default App;
+
 
 
 

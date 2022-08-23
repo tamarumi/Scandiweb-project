@@ -3,6 +3,9 @@ import gql from "graphql-tag" ;
 import "./ProductList.css";
 import {request} from 'graphql-request';
 import "../App.css"
+import { connect } from "react-redux";
+import {open} from '../actions/isOpenAction';
+import {currency} from '../actions/currencyAction'
 
 
 const GET_PRICES = gql`
@@ -18,32 +21,31 @@ class CurrencyChange extends Component {
     {
     super(props);
     this.state= {
-      array: [],
+      array1: [],
       selectedValue: "$",
-      open: false
     }
-   
-   }
+    }
     
     componentDidMount() {
         request("http://localhost:4000/", GET_PRICES).then((data) => {
         let length = data.currencies.length;
         for (let i = 0; i < length; i++) {
-           this.state.array.push(data.currencies[i].symbol + " " + data.currencies[i].label)
-        }
-        this.setState({array: this.state.array.slice(0,5)});
-    })
+          this.state.array1.push(data.currencies[i].symbol + " " + data.currencies[i].label);
+       }
+        this.setState({array1: this.state.array1.slice(0,5)}); 
+      })
     }
    
     onElementClicked(type, e){
        e.preventDefault();
        this.setState({selectedValue: type});
+       console.log(this.state.selectedValue)
     }
     
-    onButton(e) {
+    onButton (e) {
         e.preventDefault();
-        this.setState({open: !this.state.open});
-        this.props.setCurrency(this.state.array)
+        this.props.openClose();
+        this.props.setCurrency(this.state.array1);
     }
 
     render() {
@@ -51,9 +53,9 @@ class CurrencyChange extends Component {
            <div className='custom-select'>
            <div className='select'>
            <div className='dollarSign' onClick={(e)=> this.onButton(e)}>{this.state.selectedValue[0]}</div>
-           { this.state.open && 
+           {this.props.open &&  
            <>
-           {this.props.currency.map ((type, key) => {
+             {this.props.currency.map((type, key) => {
                return(
                <div 
                   onClick = {(e) => this.onElementClicked(type,e)} key={key}
@@ -61,7 +63,8 @@ class CurrencyChange extends Component {
                 {type} 
                </div>
                );
-            })}
+            })
+            }
             </>
             }
            </div>
@@ -70,4 +73,18 @@ class CurrencyChange extends Component {
    }   
 }
 
-export default CurrencyChange
+const mapStateToProps = (state) => {
+  return {
+    open: state.open.open,
+    currency : state.currency.currency
+  }
+}
+
+const mapDispatchToProps = ( dispatch ) => { 
+  return ({
+    openClose: () => dispatch({type: "IS_OPEN"}),
+    setCurrency: (array1)=>dispatch({type: "GET_CURRENCY", payload: array1}, currency(array1))
+  })
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(CurrencyChange);
