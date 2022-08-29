@@ -18,6 +18,7 @@ body {
 }
 
 .Product-content img {
+    object-fit: contain;
     height: 600px;
     width: 610px;
     left: 0px;
@@ -31,3 +32,70 @@ body {
     height: 100px;
     margin: 20px;
 }
+
+.Size-buttons button{
+    color: black;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 30px 2px 6px 3px ;
+    font-size: 20px;
+    padding: 10px;
+    height: 45px;
+    width: 63px;
+    left: 1154px;
+    top: 299px;
+    border-radius: 0px;
+}
+
+.Size-buttons button:hover{
+    background-color: black;
+    color: white;
+}
+
+.Color-buttons button{
+    height: 35px;
+    width: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+    display: inline-block;
+    margin: 6px 2px 6px 3px ;
+}
+
+.Color-buttons div, .Price-button div, .Size-buttons div,
+.Price div, .Product-description div, .otherAttributes div{
+    margin: 30px 2px 6px 3px;
+    width: 38px;
+    height: 22px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    color: #1d1F22;
+}
+
+.otherAttributes div{
+   display: inline;
+   margin: 0px 12px 0px 3px;
+}
+
+.Description {
+    position: absolute;
+    height: 595px;
+    width: 292px;
+    left: 729px;
+    top: 100px;
+    border-radius: 0px;
+}
+
+.AddToCart button{
+    height: 50px;
+    width: 275px;
+    font-size: 23px;
+    color: white;
+    background-color: #5ECE78;
+    border: none;
+}
+

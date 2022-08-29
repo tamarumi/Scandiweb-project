@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 80px 0px 80px;
+    padding: 150px 0px 80px;
 }
 
 .text-link{
@@ -28,5 +28,20 @@ img{
 .Product-price{
     display: flex;
     padding: 0px;
-    padding: 0px;
 }
+
+.Category-name {
+    position: absolute;
+    width: 299px;
+    height: 68px;
+    display: flex;
+    font-family: 'Raleway', sans-serif ; 
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    color: solid #1D1F22;
+    padding: 12px;
+    margin: 20px 0px 20px 0px;
+    vertical-align: center;
+  }

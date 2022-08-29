@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { Query } from "@apollo/client/react/components";
 import gql from "graphql-tag" ; 
 import "./ProductList.css";
-//import { currency } from '../App.js';
+import { connect } from "react-redux";
 
 
 const GET_PRODUCTS = gql`
@@ -26,10 +26,7 @@ query getAll ($title: String!) {
 }`
  
 class ProductList  extends Component {
-  constructor (props) {
-    super(props);
-    //console.log(this.props.currency)
-  }
+
     render() {  
         return (
         <Query query={GET_PRODUCTS} variables={{title: this.props.title}}>
@@ -37,9 +34,11 @@ class ProductList  extends Component {
            
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error :( </p>;
-            //console.log(data.category.products.prices.currency.symbol)
 
             return (
+              <div>
+              <div className='Category-name'>{this.props.title}</div>
+
                 <div className= "ProductList"> 
                 {data.category.products.map ((product,index)=> {
                    return ( 
@@ -47,15 +46,60 @@ class ProductList  extends Component {
                    <img src={product.gallery[0]}></img>
                    <h2>{product.name}</h2>
                    <div className='Product-price'>
-                   <p>{product.prices[1].currency.symbol}</p>
-                   <p>{product.prices[1].amount}</p>
-                   <p>
                    
-                   </p>
+                   <div>
+                   {(() => {
+        switch (true) {
+          case this.props.selectedValue === this.props.currency[0]:
+            return (
+              <div>
+              {product.prices[0].currency.symbol} <></>
+              {product.prices[0].amount}
+              </div>
+            )
+          case this.props.selectedValue === this.props.currency[1]:
+            return (
+              <div>
+              {product.prices[1].currency.symbol} <></>
+              {product.prices[1].amount}
+              </div>
+            )
+          case this.props.selectedValue === this.props.currency[2]:
+            return (
+              <div>
+              {product.prices[2].currency.symbol} <></>
+              {product.prices[2].amount}
+              </div>
+            )
+          case this.props.selectedValue === this.props.currency[3]:
+            return (
+              <div>
+              {product.prices[3].currency.symbol} <></>
+              {product.prices[3].amount}
+              </div>
+            )
+          case this.props.selectedValue === this.props.currency[4]:
+            return (
+              <div>
+              {product.prices[4].currency.symbol} <></>
+              {product.prices[4].amount}
+              </div>
+            )
+          default:
+            return (
+              <div>
+              {product.prices[0].currency.symbol} <></>
+              {product.prices[0].amount}
+              </div>
+            )
+        }
+      })()}
+                  </div>
                    </div>
                   </Link>
                 );
             })};
+       </div>
        </div>
         )
     }}
@@ -63,8 +107,14 @@ class ProductList  extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+  return {
+    currency: state.currency.currency, 
+    selectedValue: state.selectedValue.selectedValue
+  }
+}
 
- export default ProductList;
+ export default connect (mapStateToProps)(ProductList);
 
 
 

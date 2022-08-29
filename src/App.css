@@ -22,23 +22,35 @@
   text-underline-offset: 22px;
 }
 
+.arrow {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 2px;
+  margin: 0px 3px 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 .custom-select  {
   position: relative;
-  left: 90%;
+  left: 1210px;
   top: 0px;
   display: block;
 }
 
 .dollarSign  {
-  width: 33px;
+  width: 33px !important;
   height: 22px;
   border: none;
   padding: 5px;
   cursor: pointer;
   background-color: #ffffff !important;
-  
-}
 
+}
 .dollarSign:hover{
  background-color: #ffffff !important;
 }
@@ -49,23 +61,22 @@
   padding: 5px 0px;
   cursor: pointer;
   color: #000000;
-  
   border: none;
   font-size: 20px;
   font-weight: 800;
   position: absolute;
   max-height: 150px;
-  padding: 5px;
 }
 .select div{
   padding: 6px 10px 15px 15px;
   background: rgb(255, 255, 255);
   max-height: 200px;
   cursor: pointer;
+  
 }
 .select div:hover{
   background-color: #e5e5e5;
-  
 }
+
  
  

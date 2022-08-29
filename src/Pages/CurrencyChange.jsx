@@ -4,8 +4,8 @@ import "./ProductList.css";
 import {request} from 'graphql-request';
 import "../App.css"
 import { connect } from "react-redux";
-import {open} from '../actions/isOpenAction';
 import {currency} from '../actions/currencyAction'
+import { selectedValue } from '../actions/selectedValueAction';
 
 
 const GET_PRICES = gql`
@@ -24,9 +24,10 @@ class CurrencyChange extends Component {
       array1: [],
       selectedValue: "$",
     }
+    
     }
     
-    componentDidMount() {
+   componentDidMount() {
         request("http://localhost:4000/", GET_PRICES).then((data) => {
         let length = data.currencies.length;
         for (let i = 0; i < length; i++) {
@@ -35,24 +36,29 @@ class CurrencyChange extends Component {
         this.setState({array1: this.state.array1.slice(0,5)}); 
       })
     }
+
+    componentDidUpdate() {
+      this.props.setCurrency(this.state.array1);
+    }
    
     onElementClicked(type, e){
        e.preventDefault();
-       this.setState({selectedValue: type});
+       //this.setState({selectedValue: type});
+       this.props.setSelectedValue(type)
        console.log(this.state.selectedValue)
     }
     
     onButton (e) {
         e.preventDefault();
         this.props.openClose();
-        this.props.setCurrency(this.state.array1);
+        //this.props.setCurrency(this.state.array1);
     }
 
     render() {
         return (
            <div className='custom-select'>
            <div className='select'>
-           <div className='dollarSign' onClick={(e)=> this.onButton(e)}>{this.state.selectedValue[0]}</div>
+           <div className='dollarSign' onClick={(e)=> this.onButton(e)}>{this.props.selectedValue[0]} <i className="arrow down"></i></div>
            {this.props.open &&  
            <>
              {this.props.currency.map((type, key) => {
@@ -76,14 +82,16 @@ class CurrencyChange extends Component {
 const mapStateToProps = (state) => {
   return {
     open: state.open.open,
-    currency : state.currency.currency
+    currency : state.currency.currency, 
+    selectedValue: state.selectedValue.selectedValue
   }
 }
 
 const mapDispatchToProps = ( dispatch ) => { 
   return ({
     openClose: () => dispatch({type: "IS_OPEN"}),
-    setCurrency: (array1)=>dispatch({type: "GET_CURRENCY", payload: array1}, currency(array1))
+    setCurrency: (array1)=>dispatch({type: "GET_CURRENCY", payload: array1}, currency(array1)),
+    setSelectedValue: (type)=>dispatch({type: "SELECTEDVALUE", payload: type}, selectedValue(type))
   })
 }
 
