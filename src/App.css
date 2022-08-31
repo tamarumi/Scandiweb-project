@@ -6,20 +6,27 @@
 
 .Categories {
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: flex-start;
+  position: absolute;
+  left: 101px;
+  width: 234px;
+  height: 56px
 }
 
 .Categories div {
   padding: 12px;
   cursor: pointer;
   font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
 }
 
 .Categories div:hover {
   color: rgb(14, 184, 14);
   text-decoration: underline;
   text-underline-offset: 22px;
+  font-weight: 800;
 }
 
 .arrow {
@@ -40,6 +47,7 @@
   left: 1210px;
   top: 0px;
   display: block;
+  width: 100px
 }
 
 .dollarSign  {
@@ -56,7 +64,7 @@
 }
 
 .select {
-  display: inline;
+  display: block;
   margin-top: 5px;
   padding: 5px 0px;
   cursor: pointer;
@@ -72,7 +80,6 @@
   background: rgb(255, 255, 255);
   max-height: 200px;
   cursor: pointer;
-  
 }
 .select div:hover{
   background-color: #e5e5e5;

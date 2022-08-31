@@ -6,17 +6,20 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 150px 0px 80px;
+    padding: 242px 2px 80px;
 }
 
 .text-link{
-    text-decoration: none;
-    color: black;
-    padding: 10px;
+   padding: 15px;
+   text-decoration: none;
+   color: #1D1F22;
+   font-family: 'Raleway', sans-serif;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 160%;
+   font-size: 24px
 }
 .text-link:hover {
-    text-decoration: underline;
-    color: rgb(14, 184, 14);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }   
 
@@ -25,23 +28,32 @@ img{
     height: 400px;
 }
 
-.Product-price{
+.Product-price {
     display: flex;
     padding: 0px;
+    width: 80px;
+    height: 29px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 1000;
+    font-size: 15px;
+    line-height: 160%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
 .Category-name {
     position: absolute;
     width: 299px;
     height: 68px;
-    display: flex;
-    font-family: 'Raleway', sans-serif ; 
-    font-size: 42px;
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
+    font-size: 42px;
     line-height: 160%;
-    color: solid #1D1F22;
-    padding: 12px;
-    margin: 20px 0px 20px 0px;
-    vertical-align: center;
+    display: flex;
+    align-items: center;
+    color: #1D1F22;
+    left: calc(51% - 299px/2 - 469.5px);
+    top: calc(31% - 68px/2 - 68.5px);
   }
