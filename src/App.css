@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 .App { 
   max-width: 80rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 
 .Categories {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: flex-end;
   position: absolute;
   left: 101px;
-  width: 234px;
-  height: 56px
+  width: 68px;
+  height: 56px;
+  padding: 0px;
 }
 
 .Categories div {
@@ -20,21 +21,19 @@
   font-size: 22px;
   font-family: 'Raleway', sans-serif;
   font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  text-transform: uppercase;
 }
 
-.Categories div:hover {
-  color: rgb(14, 184, 14);
-  text-decoration: underline;
-  text-underline-offset: 22px;
-  font-weight: 800;
-}
 
 .arrow {
   border: solid black;
   border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 2px;
-  margin: 0px 3px 3px;
+  margin: 0px 4px 3px;
+  font-size: 20px;
 }
 
 .down {
@@ -42,30 +41,31 @@
   -webkit-transform: rotate(45deg);
 }
 
+.up{
+  transform: rotate(-135deg);
+   -webkit-transform: rotate(-135deg);
+}
+
 .custom-select  {
   position: relative;
   left: 1210px;
   top: 0px;
   display: block;
-  width: 100px
+  width: 100px;
 }
 
 .dollarSign  {
-  width: 33px !important;
-  height: 22px;
+  width: 33px;
+  height: 22px ;
   border: none;
   padding: 5px;
   cursor: pointer;
-  background-color: #ffffff !important;
-
-}
-.dollarSign:hover{
- background-color: #ffffff !important;
+  background-color: #ffffff ;
 }
 
-.select {
+.select{
   display: block;
-  margin-top: 5px;
+  margin-top: 0px;
   padding: 5px 0px;
   cursor: pointer;
   color: #000000;
@@ -74,16 +74,47 @@
   font-weight: 800;
   position: absolute;
   max-height: 150px;
+
 }
 .select div{
-  padding: 6px 10px 15px 15px;
-  background: rgb(255, 255, 255);
-  max-height: 200px;
-  cursor: pointer;
-}
-.select div:hover{
-  background-color: #e5e5e5;
+  padding: 6px 5px 10px 15px
 }
 
+#trolley {
+  width: 20px;
+  height: 18px;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+  padding: 0px 3px 0px;
+}
  
- 
+.actions {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px !important;
+  margin-right: 0px;
+  gap: 0px;
+  position: absolute;
+  width: 204px;
+  height: 40px;
+  right: -72px;
+  top: 0px;
+}
+
+.label {
+  position: absolute;
+  width: 100px;
+  height: 169px;
+  left: -23px;
+  right: 80px;
+  top: 40px;
+  cursor: pointer;
+  max-height: 150px;
+}
+
+.label div:hover{
+  background-color: #e5e5e5
+}

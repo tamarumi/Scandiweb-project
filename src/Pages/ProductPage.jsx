@@ -6,6 +6,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import ErrorBoundary from './ErrorBoundary';
 
+
 const GET_PRODUCT = gql`
   query GetProduct($id: String!) {
     product(id: $id) {
@@ -43,12 +44,33 @@ class ProductPage extends Component {
     this.state = {
       id: '',
     };
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
     this.setState({
       id: window.location.pathname.split('/')[2],
     });
+  }
+  
+  addToCart(e, product) {
+    e.preventDefault();
+    let productAlreadyInCart = false; 
+    this.setState((state, props) => {
+      const cartItems = this.props.cartItems;
+      cartItems?.forEach((item) => {
+        if (item.id === product.id) {
+        productAlreadyInCart= true;
+        }
+      });
+      if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 1 });
+        console.log(cartItems)
+      }
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      return cartItems; 
+    });
+     
   }
 
   render() {
@@ -57,8 +79,7 @@ class ProductPage extends Component {
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>{error.toString()} </p>;
-
-          
+          const id = data.product.id;
           return (
             <div>
               <ErrorBoundary>
@@ -92,7 +113,7 @@ class ProductPage extends Component {
                       data.product.attributes[0]?.type === 'swatch' && (
                         <>
                           <div className="Color-buttons">
-                            <h3 className='Color'>Color:</h3>
+                            <h3 className="Color">Color:</h3>
                             <button style={{ backgroundColor: data.product.attributes[0].items[0].value }}></button>
                             <button style={{ backgroundColor: data.product.attributes[0].items[1].value }}></button>
                             <button style={{ backgroundColor: data.product.attributes[0].items[2].value }}></button>
@@ -100,7 +121,7 @@ class ProductPage extends Component {
                             <button style={{ backgroundColor: data.product.attributes[0].items[4].value }}></button>
                           </div>
                           <div className="OtherAttributes">
-                            <h3 className='Capacity'>{data.product.attributes[1].name}:</h3>
+                            <h3 className="Capacity">{data.product.attributes[1].name}:</h3>
                             <button>{data.product.attributes[1].items[0].value}</button>
                             <button>{data.product.attributes[1].items[1].value}</button>
                           </div>
@@ -112,7 +133,7 @@ class ProductPage extends Component {
                       data.product.attributes[1]?.type === 'swatch' && (
                         <>
                           <div className="Color-buttons">
-                            <h3 className='Color'>Color:</h3>
+                            <h3 className="Color">Color:</h3>
                             <button style={{ backgroundColor: data.product.attributes[1].items[0].value }}></button>
                             <button style={{ backgroundColor: data.product.attributes[1].items[1].value }}></button>
                             <button style={{ backgroundColor: data.product.attributes[1].items[2].value }}></button>
@@ -120,7 +141,7 @@ class ProductPage extends Component {
                             <button style={{ backgroundColor: data.product.attributes[1].items[4].value }}></button>
                           </div>
                           <div className="OtherAttributes">
-                            <h3 className='Capacity'>{data.product.attributes[0].name}:</h3>
+                            <h3 className="Capacity">{data.product.attributes[0].name}:</h3>
                             <button>{data.product.attributes[0].items[0].value}</button>
                             <button>{data.product.attributes[0].items[1].value}</button>
                           </div>
@@ -133,7 +154,7 @@ class ProductPage extends Component {
                       data.product.attributes[1]?.type === 'text' && (
                         <>
                           <div className="OtherAttributes">
-                            <h3 className='Capacity'>{data.product.attributes[0].name}:</h3>
+                            <h3 className="Capacity">{data.product.attributes[0].name}:</h3>
                             <button>{data.product.attributes[0].items[0].value}</button>
                             <button>{data.product.attributes[0].items[1].value}</button>
                             <h3>{data.product.attributes[1].name}:</h3>
@@ -148,10 +169,9 @@ class ProductPage extends Component {
 
                     {data.product.name === 'AirTag' && <div style={{ fontSize: '2px', color: 'green' }}></div>}
 
-            
                     <div>
-                      <div id='Price'>Price:</div>
-                      <div id='Amount'>
+                      <div id="Price">Price:</div>
+                      <div id="Amount">
                         {(() => {
                           switch (true) {
                             case this.props.selectedValue === this.props.currency[0]:
@@ -199,11 +219,20 @@ class ProductPage extends Component {
                           }
                         })()}
                       </div>
-                      </div>
-                      <div className="AddToCart">
-                        <button>ADD TO CART</button>
-                      </div>
-                      <div id="Product-description" dangerouslySetInnerHTML={{ __html: data.product.description }}></div>
+                    </div>
+                    <div className="AddToCart">
+                      {!data.product.inStock ? (
+                        <>
+                          <button disabled style={{ opacity: 0.5 }}>
+                            ADD TO CART
+                          </button>
+                          <div id="OutOfStock">This item is out of stock!</div>
+                        </>
+                      ) : (
+                        <button onClick={(e) => this.addToCart(e, data.product)}  >ADD TO CART</button>
+                      )}
+                    </div>
+                    <div id="Product-description" dangerouslySetInnerHTML={{ __html: data.product.description }}></div>
                   </div>
                 </div>
               </ErrorBoundary>
@@ -221,4 +250,6 @@ const mapStateToProps = (state) => {
     selectedValue: state.selectedValue.selectedValue,
   };
 };
+
+
 export default connect(mapStateToProps)(ProductPage);

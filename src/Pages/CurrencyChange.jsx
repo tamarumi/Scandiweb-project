@@ -6,6 +6,8 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { currency } from '../actions/currencyAction';
 import { selectedValue } from '../actions/selectedValueAction';
+import trolley from '../images/trolley.png';
+import CartPage from './CartPage'; 
 
 const GET_PRICES = gql`
   query getPrices {
@@ -21,7 +23,7 @@ class CurrencyChange extends Component {
     super(props);
     this.state = {
       array1: [],
-      selectedValue: '$',
+      selectedValue: '$'
     };
   }
 
@@ -33,6 +35,7 @@ class CurrencyChange extends Component {
       }
       this.setState({ array1: this.state.array1.slice(0, 5) });
     });
+  
   }
 
   componentDidUpdate() {
@@ -50,24 +53,36 @@ class CurrencyChange extends Component {
     this.props.openClose();
   }
 
+  onCart(e){
+    e.preventDefault();
+    this.props.navigate('/cartpage');
+  }
+
   render() {
     return (
       <div className="custom-select">
         <div className="select">
-          <div className="dollarSign" onClick={(e) => this.onButton(e)}>
-            {this.props.selectedValue[0]} <i className="arrow down"></i>
+          <div className="actions">
+            <div className="dollarSign" onClick={(e) => this.onButton(e)}>
+              {this.props.selectedValue[0]}
+              {this.props.open === true ? <i className="arrow up"></i> : <i className="arrow down"></i>}
+            </div>
+            <img src={trolley} id="trolley" onClick={(e) => this.onCart(e)}/>
+           
           </div>
-          {this.props.open && (
-            <>
-              {this.props.currency.map((type, key) => {
-                return (
-                  <div onClick={(e) => this.onElementClicked(type, e)} key={key}>
-                    {type}
-                  </div>
-                );
-              })}
-            </>
-          )}
+          <div className="label">
+            {this.props.open && (
+              <>
+                {this.props.currency.map((type, key) => {
+                  return (
+                    <div onClick={(e) => this.onElementClicked(type, e)} key={key}>
+                      {type}
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
         </div>
       </div>
     );

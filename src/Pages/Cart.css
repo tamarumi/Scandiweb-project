@@ -1,0 +1,88 @@
+.basket { 
+    left: 110px;
+    top: 160px;
+    color: #1d1d1d;
+    font-weight: 600;
+    width: 1255px;
+    height: 400px;
+    position: absolute;
+    font-size: 20px;
+    background: #ffffff;
+}
+
+.basket div {
+    padding: 5px;
+}
+
+.sliderImages img{
+    position: absolute;
+    left: 79.17%;
+    right: 6.94%;
+    width: 210px;
+    height: 225px;
+}
+
+.arrows {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: absolute;
+    padding: 0px;
+    gap: 8px;
+    width: 56px;
+    height: 24px;
+    left: 90.17%;
+    z-index: 1;
+    color: white;
+}
+
+.ArrowContainer{
+    background: rgba(0, 0, 0, 0.73);
+    top: 190px;
+    position: relative;
+}
+
+.Arrow {
+  border: solid rgb(255, 255, 255);
+  border-width: 0 2px 2px 0;
+  border-radius: 2px;
+  cursor: pointer;
+  color: white;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+   margin-left: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+   -webkit-transform: rotate(-45deg);
+   margin-right: 3px;
+}
+
+.count{
+    position: relative;
+    left: 900px;
+    top: 0px;
+    width: 45px;
+    height: 0px;
+    
+}
+
+.count > div{
+    padding: 45px 15px 60px 15px;
+}
+
+.count button {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid #1D1F22;
+    background: none;
+    cursor: pointer;
+}
+
+
+

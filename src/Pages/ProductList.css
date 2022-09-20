@@ -7,6 +7,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 242px 2px 80px;
+   
 }
 
 .text-link{
@@ -54,6 +55,7 @@ img{
     display: flex;
     align-items: center;
     color: #1D1F22;
-    left: calc(51% - 299px/2 - 469.5px);
-    top: calc(31% - 68px/2 - 68.5px);
+    left: 40px;
+    top:120px;
+    text-transform: uppercase;
   }

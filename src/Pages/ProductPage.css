@@ -91,8 +91,8 @@ body {
 }
 
 .Color-buttons button{
-    height: 35px;
-    width: 40px;
+    height: 36px;
+    width: 36px;
     left: 0px;
     top: 0px;
     border-radius: 0px;
@@ -102,7 +102,7 @@ body {
 
 .Color-buttons div, .Size-buttons div,
 .Price div,  #Price,
-.AddToCart div, .Color, .Capacity{
+.AddToCart div, .Color, .Capacity {
     font-family: 'Roboto Condensed', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -128,7 +128,7 @@ body {
     color: #1d1F22;
     padding: 10px 0px 2px 2px;
 }
-#Product-description{
+#Product-description, #OutOfStock{
     width: 292px;
     height: 103px;
     top: 652px;
@@ -145,6 +145,13 @@ body {
     bottom: 178px; 
 }
 
+#OutOfStock {
+    padding: 0px;
+    height: 30px;
+    color: red;
+    font-weight: 600;
+}
+
 #Product-description > p, span, li{
     width: 260px;
     font-size: 20px;
@@ -155,6 +162,18 @@ body {
     font-size: 20px;
     padding: 5px 0px;
     font-weight: 400;
+}
+#text{
+    position: absolute;
+    transform: translate(+80%, +450%);
+    display: flex;
+    align-items: center;
+    color: #8D8F9A;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
 }
 
 .AddToCart button{
