@@ -10,9 +10,7 @@ class Slider extends Component{
               items[0], items[1], items[2], items[3], items[4]
           ],
           currentIndex: 0
-      }
-      console.log(this.props.item)
-      
+      } 
   }
  
    goPrevious(e){
@@ -31,6 +29,8 @@ class Slider extends Component{
 
   render(){
       return (
+        <>
+        {this.state.slides[1] != null ? (
         <div className="sliderImages">
           <div className="arrows">
            <div className='ArrowContainer'>
@@ -42,8 +42,12 @@ class Slider extends Component{
             </div>
             </div>
           </div>
-          <img src={this.state.slides[this.state.currentIndex]} />
+          <img src={this.state.slides[this.state.currentIndex]} alt="Image Slider" />
         </div>
+        ) : (
+          <img id="oneImage"src={this.state.slides[0]} alt="First Slider Image"/>
+        )}
+        </>
       );
   }
 }

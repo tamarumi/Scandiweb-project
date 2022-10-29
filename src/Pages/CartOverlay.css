@@ -1,0 +1,195 @@
+.basket2 { 
+    left: -30px;
+    top: -20px;
+    color: #1d1d1d;
+    font-weight: 600;
+    width: 318px;
+    height: 620px;
+    font-size: 15px;
+    background: #ffffff;
+    padding: 30px 15px;
+    position: absolute;
+    z-index: 1;
+    overflow-x: hidden;
+}
+.cartItems2 {
+   position: relative;
+   top: -20px;
+   left: -70px;
+}
+.items{
+    position: relative;
+    display: flex;
+    margin-top: -10px;
+    height: 250px;
+}
+#bag {
+    position: relative; 
+    font-weight: 700px;
+    width: 118px;
+    height: 26px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    text-align: right;
+    color: #1D1F22;
+    left: 40px;
+}
+#imageSlider{
+    width: 120px;
+    height: 190px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+    left: 240px;
+    position: absolute;
+}
+.count2{
+    width: 24px;
+    height: 190px;
+    position: relative; 
+}
+.count2 > div{
+    padding: 60px 10px;
+}
+.count2 button {
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    border: 1px solid #1D1F22;
+    background: none;
+    cursor: pointer;
+}
+.titles {
+    position: relative;
+    left: 0px;
+    width: 140px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 300;
+    top: -12px;
+}
+.amount{
+    position: relative;
+    top: -35px;
+    left: 15px; 
+    width: 100px;
+    height: 26px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 600;
+    line-height: 160%;
+    color: #1D1F22;
+    padding-top: 5px;
+}
+.Size-buttons2 button:hover, .OtherAttributes2 button:hover{
+    background-color: black;
+    color: white;
+}
+.Color-buttons2 button{
+    height: 18px;
+    width: 18px;
+    left: 15px;
+    top: -55px;
+    border-radius: 0px;
+    display: inline-block;
+    position: relative;
+    margin: 2px;
+}
+.numbers2 {
+   width: 65px;
+   height: 20px;
+   left: -110px;
+}
+.totalOnOverlay {
+    top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    left: 50px;
+    position: relative;
+}
+.Color-buttons2 div, .Size-buttons2 div, .Capacity2 {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    width: 30px;
+    height: 5px;
+    font-size: 14px;
+    line-height: 160%;
+    color: #1d1F22;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    top: -50px;
+}
+.Capacity2 {
+    width: 140px;
+    font-weight: 500;
+    top: -50px
+}
+
+.Size-buttons2{
+    position: relative;
+    width: 120px;
+}
+ .OtherAttributes2 button, .Size-buttons2 button{
+    color: black;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px;
+    padding: 0px;
+    height: 24px;
+    width: 24px;
+    top: -55px;
+    border-radius: 0px;
+    border: 1px solid #1d1F22;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    left: 15px;
+}
+.OtherAttributes2 button {
+    width: 36px;
+}
+.endButtons{
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: space-between;
+    left: 35px;
+    width: 300px;
+}
+.endButtons button{
+    padding: 5px 10px;
+    margin: 3px;
+    height: 43px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#viewBagButton{
+    border-radius: none;
+    border: 1px solid #1D1F22;
+    background-color: #ffffff;
+    color:#1D1F22;
+    width: 173px;
+}
+#checkOutButton{
+    border-radius: none;
+    border: none;
+    background-color: #5ECE7B;
+    color: #ffffff;
+    width: 173px;
+}

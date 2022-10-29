@@ -1,27 +1,67 @@
 .basket { 
-    left: 110px;
-    top: 160px;
+    left: 70px;
+    top: 80px;
     color: #1d1d1d;
     font-weight: 600;
-    width: 1255px;
+    width: 1300px;
     height: 400px;
-    position: absolute;
+    position: relative;
     font-size: 20px;
     background: #ffffff;
+    z-index: 0;
 }
-
-.basket div {
-    padding: 5px;
+.basket div{
+    padding: 5px
 }
-
-.sliderImages img{
+/*.basketContainer{
+    
+    padding: 0px 0px 580px
+}
+*/
+.cart, #itemBrand, #itemName, .cartPrice {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    color: #1D1F22;
+    display: flex;
+    align-items: center;
+}
+.cart{ 
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    width: 84px;
+    height: 40px;
+    top: 0px;
+    padding-bottom: 30px !important;
+}
+#itemBrand{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    width: 292px;
+    height: 27px;
+    padding-bottom: 12px !important;
+}
+#itemName{
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    width: 292px;
+    height: 27px;
+}
+.cartPrice{ 
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+}
+.sliderImages img, #oneImage{
     position: absolute;
     left: 79.17%;
     right: 6.94%;
     width: 210px;
     height: 225px;
 }
-
 .arrows {
     display: flex;
     flex-direction: row;
@@ -32,16 +72,14 @@
     width: 56px;
     height: 24px;
     left: 90.17%;
-    z-index: 1;
     color: white;
+    z-index: 1;
 }
-
 .ArrowContainer{
     background: rgba(0, 0, 0, 0.73);
     top: 190px;
     position: relative;
 }
-
 .Arrow {
   border: solid rgb(255, 255, 255);
   border-width: 0 2px 2px 0;
@@ -49,32 +87,26 @@
   cursor: pointer;
   color: white;
 }
-
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
    margin-left: 3px;
 }
-
 .right {
   transform: rotate(-45deg);
    -webkit-transform: rotate(-45deg);
    margin-right: 3px;
 }
-
 .count{
     position: relative;
-    left: 900px;
+    left: 960px;
     top: 0px;
     width: 45px;
     height: 0px;
-    
 }
-
 .count > div{
     padding: 45px 15px 60px 15px;
 }
-
 .count button {
     width: 45px;
     height: 45px;
@@ -84,5 +116,42 @@
     cursor: pointer;
 }
 
+#orderButton {
+    width: 279px;
+    height: 43px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: #5ECE7B;
+    border: none;
+    cursor: pointer;
+}
+.beforeOrderInfo{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: 24px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    color: #1D1F22;
+    line-height: 24px;
+}
+.numbers {
+    font-weight: 700 !important;
+}
+.hr {
+    left: 10px;
+    opacity: 0.3;
+    width: 1240px;
+    position: absolute;
+    
+}
 
 

@@ -1,32 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 .App { 
-  max-width: 80rem;
   margin: 2rem auto;
 }
-
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .Categories {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  position: absolute;
-  left: 101px;
   width: 68px;
   height: 56px;
-  padding: 0px;
+  padding: 0px 4rem;
 }
-
 .Categories div {
   padding: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 600;
   line-height: 160%;
   text-transform: uppercase;
 }
-
-
 .arrow {
   border: solid black;
   border-width: 0 1px 1px 0;
@@ -35,38 +34,32 @@
   margin: 0px 4px 3px;
   font-size: 20px;
 }
-
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-
 .up{
   transform: rotate(-135deg);
    -webkit-transform: rotate(-135deg);
 }
-
 .custom-select  {
   position: relative;
-  left: 1210px;
   top: 0px;
   display: block;
   width: 100px;
+  z-index: 1;
 }
-
 .dollarSign  {
   width: 33px;
   height: 22px ;
   border: none;
   padding: 5px;
   cursor: pointer;
-  background-color: #ffffff ;
 }
-
 .select{
   display: block;
   margin-top: 0px;
-  padding: 5px 0px;
+  padding: 6px 0px;
   cursor: pointer;
   color: #000000;
   border: none;
@@ -74,12 +67,10 @@
   font-weight: 800;
   position: absolute;
   max-height: 150px;
-
 }
 .select div{
   padding: 6px 5px 10px 15px
 }
-
 #trolley {
   width: 20px;
   height: 18px;
@@ -88,7 +79,38 @@
   flex-grow: 0;
   padding: 0px 3px 0px;
 }
- 
+#numberOfItems {
+  position: absolute;
+  left: 92.7%;
+  right: 6.31%;
+  top: 0%;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  width: 26px;
+  height: 20px;
+  background-color: black;
+  border-radius: 12px;
+  border: none;
+  opacity: 0.8;
+}
+.overlay{
+  width: 325px;
+  height: 677px;
+  left: -250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 32px;
+  position: absolute;
+  color: #ffffff;
+  z-index: 5;
+}
 .actions {
   display:flex;
   flex-direction: row;
@@ -97,24 +119,36 @@
   padding: 0px !important;
   margin-right: 0px;
   gap: 0px;
-  position: absolute;
-  width: 204px;
+  position: relative;
   height: 40px;
-  right: -72px;
-  top: 0px;
+  right: 2rem;
+  top: -20px;
 }
 
 .label {
   position: absolute;
   width: 100px;
   height: 169px;
-  left: -23px;
+  left: -46px;
   right: 80px;
-  top: 40px;
+  top: 30px;
   cursor: pointer;
   max-height: 150px;
 }
-
 .label div:hover{
   background-color: #e5e5e5
+}
+.svg{
+  width: 31.18px;
+  height: 29.93px;
+  position: absolute;
+  top: -10px;
+  left: -60px;
+}
+.svgArrow {
+  position: absolute;
+  width: 17px;
+  height: 10px;
+  top: -2px;
+  left: -52px;
 }

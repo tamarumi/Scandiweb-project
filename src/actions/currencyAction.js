@@ -1,9 +1,9 @@
 import { GET_CURRENCY } from "./types";
 
-export const currency = (array1) => {
+export const currency = (currencyArray) => {
     return{
         type: "GET_CURRENCY",
-        array1
+        currencyArray
  }
 }
  
